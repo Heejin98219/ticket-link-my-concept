@@ -3,23 +3,24 @@ const TopMenus = () => {
     <div>
       <div
         style={{
-          border: "3px solid blue",
-          textAlign: "right",
+          border: "3px solid blue", //
+          display: "flex",
+          justifyContent: "right",
         }}
       >
         <ul
           style={{
-            position: "relative",
-            left: "65%",
             display: "flex",
             justifyContent: "space-evenly",
-            width: "450px",
+            border: "2px solid green", //
+            width: "500px",
           }}
         >
           <li
             style={{
               display: "inline-block",
               cursor: "pointer",
+              padding: " 2px 0px 2px 0px",
             }}
           >
             로그인
@@ -28,6 +29,7 @@ const TopMenus = () => {
             style={{
               display: "inline-block",
               cursor: "pointer",
+              padding: " 2px 0px 2px 0px",
             }}
           >
             회원가입
@@ -36,6 +38,7 @@ const TopMenus = () => {
             style={{
               display: "inline-block",
               cursor: "pointer",
+              padding: " 2px 0px 2px 0px",
             }}
           >
             예매취소/확인
@@ -44,6 +47,7 @@ const TopMenus = () => {
             style={{
               display: "inline-block",
               cursor: "pointer",
+              padding: " 2px 0px 2px 0px",
             }}
           >
             문의하기
