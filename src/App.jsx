@@ -1,5 +1,6 @@
 import "./App.css";
 import MidMenus from "./components/MidMenus";
+import Posters from "./components/Posters";
 import SearchInput from "./components/SearchInput";
 import TopMenus from "./components/TopMenus";
 
@@ -15,6 +16,7 @@ function App() {
       >
         <SearchInput />
         <MidMenus />
+        <Posters />
       </div>
     </>
   );
