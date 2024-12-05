@@ -1,4 +1,5 @@
 import "./App.css";
+import MidMenus from "./components/MidMenus";
 import SearchInput from "./components/SearchInput";
 import TopMenus from "./components/TopMenus";
 
@@ -13,6 +14,7 @@ function App() {
         }}
       >
         <SearchInput />
+        <MidMenus />
       </div>
     </>
   );
