@@ -47,7 +47,10 @@ const Posters = () => {
   return (
     <div>
       <Container>
-        <button onClick={moveToPrevSlide}></button>
+        <button
+          onClick={moveToPrevSlide}
+          style={{ cursor: "pointer" }}
+        ></button>
         <Wrapper>
           <SlideWrapper ref={slideRef}>
             <Dash>
@@ -123,7 +126,10 @@ const Posters = () => {
             </Dash>
           </SlideWrapper>
         </Wrapper>
-        <button onClick={moveToNextSlide}></button>
+        <button
+          onClick={moveToNextSlide}
+          style={{ cursor: "pointer" }}
+        ></button>
       </Container>
     </div>
   );

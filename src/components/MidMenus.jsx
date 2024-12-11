@@ -4,7 +4,7 @@ const MidMenus = () => {
       <div>
         <ul
           style={{
-            border: "3px solid red",
+            border: "3px solid red", //
             display: "flex",
             fontSize: "30px",
             margin: "0 auto",
