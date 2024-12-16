@@ -5,6 +5,9 @@ import Posters from "./components/Posters";
 import SearchInput from "./components/SearchInput";
 import TicketList from "./components/TicketList";
 import TopMenus from "./components/TopMenus";
+import Recommended from "./components/Recommended";
+import CompanyInfo from "./components/CompanyInfo";
+import SNS from "./components/SNS";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
                 <MidMenus />
                 <Posters />
                 <TicketList />
+                <Recommended />
+                <CompanyInfo />
+                <SNS />
               </div>
             }
           />

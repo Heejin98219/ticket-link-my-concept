@@ -53,6 +53,15 @@ const TopMenus = () => {
             문의하기
           </li>
         </ul>
+        {/* <hr> 태그
+        모양처럼 생긴 <div>태그 입니다. */}
+        <div
+          style={{
+            borderTop: "1px solid #000",
+            margin: "10px 0",
+            width: "100%",
+          }}
+        ></div>
       </div>
     </div>
   );
