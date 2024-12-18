@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 const Recommended = () => {
   const slideRef = useRef(null);
@@ -135,10 +138,9 @@ const Recommended = () => {
             </Dash>
           </SlideWrapper>
         </Wrapper>
-        <button
-          onClick={moveToNextSlide}
-          style={{ cursor: "pointer" }}
-        ></button>
+        <button onClick={moveToNextSlide} style={{ cursor: "pointer" }}>
+          <FontAwesomeIcon icon={faCaretRight} />
+        </button>
       </Container>
     </div>
   );

@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Posters = () => {
   const slideRef = useRef(null);
@@ -22,12 +26,13 @@ const Posters = () => {
 
   const Container = styled.div`
     display: flex;
-    margin-left: 200px;
+    justify-content: center;
+    border: 2px solid red;
   `;
 
   const Wrapper = styled.div`
-    width: 800px;
-    height: 200px;
+    width: 1000px;
+    height: 500px;
     overflow: hidden;
     margin: 20px 80px;
   `;
@@ -49,87 +54,39 @@ const Posters = () => {
       <Container>
         <button
           onClick={moveToPrevSlide}
-          style={{ cursor: "pointer" }}
-        ></button>
+          style={{
+            cursor: "pointer",
+            border: "transparent",
+            backgroundColor: "transparent",
+          }}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} size="2xl" />
+        </button>
         <Wrapper>
           <SlideWrapper ref={slideRef}>
             <Dash>
-              <div className="dashboard-right">
-                <div className="dashboard-title">
-                  <h1
-                    style={{
-                      fontWeight: "bold",
-                      fontSize: "50px",
-                      color: "blue",
-                    }}
-                  >
-                    Billim
-                  </h1>
-                </div>
-                <div
-                  style={{ marginTop: "20px" }}
-                  className="dashboard-decoration"
-                >
-                  <div style={{ marginBottom: "50px", fontSize: "30px" }}>
-                    <p>언제어디서든지 상품을</p> <br />
-                    <p>
-                      <span
-                        style={{
-                          color: "blue",
-                          fontSize: "35px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        대여
-                      </span>{" "}
-                      해주고
-                      <span
-                        style={{
-                          color: "blue",
-                          fontSize: "35px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {" "}
-                        대여
-                      </span>{" "}
-                      받을 수 있는 서비스입니다.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <img
+                src="http://image.toast.com/aaaaab/ticketlink/TKL_7/fever_main0921.jpg"
+                style={{
+                  width: "1000px",
+                  height: "500px",
+                  backgroundSize: "cover",
+                }}
+              />
             </Dash>
-            <Dash>
-              <div className="dashboard-right">
-                <div className="dashboard-title">
-                  <h1
-                    style={{
-                      fontWeight: "bold",
-                      fontSize: "50px",
-                      color: "blue",
-                    }}
-                  >
-                    Billim
-                  </h1>
-                </div>
-                <div
-                  style={{ marginTop: "20px" }}
-                  className="dashboard-decoration"
-                >
-                  <div style={{ marginBottom: "50px", fontSize: "30px" }}>
-                    <p>Billim이 처음이시라면?</p>
-                    <br />
-                    <a>서비스 이용방법 보러가기</a>
-                  </div>
-                </div>
-              </div>
-            </Dash>
+            <Dash>456</Dash>
           </SlideWrapper>
         </Wrapper>
         <button
           onClick={moveToNextSlide}
-          style={{ cursor: "pointer" }}
-        ></button>
+          style={{
+            cursor: "pointer",
+            border: "transparent",
+            backgroundColor: "transparent",
+          }}
+        >
+          <FontAwesomeIcon icon={faChevronRight} size="2xl" />
+        </button>
       </Container>
     </div>
   );

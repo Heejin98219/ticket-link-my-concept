@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import MidMenus from "./components/MidMenus";
 import Posters from "./components/Posters";
-import SearchInput from "./components/SearchInput";
+import Search from "./components/Search";
 import TicketList from "./components/TicketList";
 import TopMenus from "./components/TopMenus";
 import Recommended from "./components/Recommended";
@@ -19,7 +19,7 @@ function App() {
             element={
               <div>
                 <TopMenus />
-                <SearchInput />
+                <Search />
                 <MidMenus />
                 <Posters />
                 <TicketList />
