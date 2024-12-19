@@ -16,12 +16,21 @@ const Posters = () => {
   }, [currentImgIdx]);
 
   const moveToNextSlide = () => {
-    if (currentImgIdx == 1) return;
-    setCurrentImgIdx(currentImgIdx + 1);
+    const totalSlides = slideRef.current.children.length; // 슬라이드 개수를 동적으로 계산
+    if (currentImgIdx >= totalSlides - 1) {
+      setCurrentImgIdx(0); // 마지막 슬라이드에서 첫 번째 슬라이드로 이동
+    } else {
+      setCurrentImgIdx(currentImgIdx + 1);
+    }
   };
+
   const moveToPrevSlide = () => {
-    if (currentImgIdx == 0) return;
-    setCurrentImgIdx(currentImgIdx - 1);
+    const totalSlides = slideRef.current.children.length; // 슬라이드 개수를 동적으로 계산
+    if (currentImgIdx <= 0) {
+      setCurrentImgIdx(totalSlides - 1); // 첫 번째 슬라이드에서 마지막 슬라이드로 이동
+    } else {
+      setCurrentImgIdx(currentImgIdx - 1);
+    }
   };
 
   const Container = styled.div`
@@ -31,22 +40,26 @@ const Posters = () => {
   `;
 
   const Wrapper = styled.div`
-    width: 1000px;
+    width: 800px; // 한 번에 보이는 슬라이드의 너비
     height: 500px;
-    overflow: hidden;
+    overflow: hidden; // 한 번에 하나의 슬라이드만 보이도록 설정
     margin: 20px 80px;
   `;
 
   const SlideWrapper = styled.div`
     display: flex;
-    width: 100%;
+    width: calc(800px * 4); // 이미지 너비 * 이미지 개수
     height: 100%;
+    transition: all 1s ease-in-out;
   `;
 
   const Dash = styled.div`
     width: 800px;
-    height: 200px;
+    height: 500px;
     flex: none; // 이 속성을 넣어야 화면에 1개씩 보여진다.
+    display: flex; // 중앙 정렬을 위해 flexbox 사용
+    align-items: center; // 수직 중앙 정렬
+    justify-content: center; // 수평 중앙 정렬
   `;
 
   return (
@@ -68,13 +81,52 @@ const Posters = () => {
               <img
                 src="http://image.toast.com/aaaaab/ticketlink/TKL_7/fever_main0921.jpg"
                 style={{
-                  width: "1000px",
-                  height: "500px",
-                  backgroundSize: "cover",
+                  width: "800px", // 부모 컨테이너(Dash)에 맞게 설정
+                  height: "500px", // 부모 컨테이너(Dash)에 맞게 설정
+                  backgroundSize: "cover", // 이미지 비율 유지하면서 채우기
                 }}
               />
             </Dash>
-            <Dash>456</Dash>
+            <Dash>
+              <img
+                src="http://image.toast.com/aaaaab/ticketlink/TKL_3/dh_main0405.jpg"
+                style={{
+                  width: "800px", // 부모 컨테이너(Dash)에 맞게 설정
+                  height: "500px", // 부모 컨테이너(Dash)에 맞게 설정
+                  backgroundSize: "cover", // 이미지 비율 유지하면서 채우기
+                }}
+              />
+            </Dash>
+            <Dash>
+              <img
+                src="http://image.toast.com/aaaaab/ticketlink/TKL_6/fever-main-0831.png"
+                style={{
+                  width: "800px", // 부모 컨테이너(Dash)에 맞게 설정
+                  height: "500px", // 부모 컨테이너(Dash)에 맞게 설정
+                  backgroundSize: "cover", // 이미지 비율 유지하면서 채우기
+                }}
+              />
+            </Dash>
+            <Dash>
+              <img
+                src="http://image.toast.com/aaaaab/ticketlink/TKL_6/main10161543.jpg"
+                style={{
+                  width: "800px", // 부모 컨테이너(Dash)에 맞게 설정
+                  height: "500px", // 부모 컨테이너(Dash)에 맞게 설정
+                  backgroundSize: "cover", // 이미지 비율 유지하면서 채우기
+                }}
+              />
+            </Dash>
+            <Dash>
+              <img
+                src="http://image.toast.com/aaaaab/ticketlink/TKL_8/PARK_MAIN_0228.jpg"
+                style={{
+                  width: "800px", // 부모 컨테이너(Dash)에 맞게 설정
+                  height: "500px", // 부모 컨테이너(Dash)에 맞게 설정
+                  backgroundSize: "cover", // 이미지 비율 유지하면서 채우기
+                }}
+              />
+            </Dash>
           </SlideWrapper>
         </Wrapper>
         <button
