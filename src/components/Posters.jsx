@@ -8,11 +8,21 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 const Posters = () => {
   const slideRef = useRef(null);
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
-  const IMG_WIDTH = 800;
+  const IMG_WIDTH = 1000;
   const slideRange = currentImgIdx * IMG_WIDTH;
+
   useEffect(() => {
     slideRef.current.style.transition = "all 1s ease-in-out";
     slideRef.current.style.transform = `translateX(-${slideRange}px)`;
+  }, [currentImgIdx]);
+
+  // **자동 슬라이드 기능 추가**
+  useEffect(() => {
+    const interval = setInterval(() => {
+      moveToNextSlide();
+    }, 1500); // 5초마다 실행
+
+    return () => clearInterval(interval); // 컴포넌트 언마운트 시 타이머 정리
   }, [currentImgIdx]);
 
   const moveToNextSlide = () => {
@@ -36,12 +46,11 @@ const Posters = () => {
   const Container = styled.div`
     display: flex;
     justify-content: center;
-    border: 2px solid red;
   `;
 
   const Wrapper = styled.div`
-    width: 800px; // 한 번에 보이는 슬라이드의 너비
-    height: 500px;
+    width: 1000px; // 한 번에 보이는 슬라이드의 너비
+    height: 550px;
     overflow: hidden; // 한 번에 하나의 슬라이드만 보이도록 설정
     margin: 20px 80px;
   `;
@@ -54,8 +63,8 @@ const Posters = () => {
   `;
 
   const Dash = styled.div`
-    width: 800px;
-    height: 500px;
+    width: 1000px;
+    height: 550px;
     flex: none; // 이 속성을 넣어야 화면에 1개씩 보여진다.
     display: flex; // 중앙 정렬을 위해 flexbox 사용
     align-items: center; // 수직 중앙 정렬
@@ -65,16 +74,23 @@ const Posters = () => {
   return (
     <div>
       <Container>
-        <button
+        <span
           onClick={moveToPrevSlide}
           style={{
-            cursor: "pointer",
-            border: "transparent",
-            backgroundColor: "transparent",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <FontAwesomeIcon icon={faChevronLeft} size="2xl" />
-        </button>
+          <span>
+            <FontAwesomeIcon
+              icon={faChevronLeft}
+              size="2xl"
+              style={{
+                cursor: "pointer",
+              }}
+            />
+          </span>
+        </span>
         <Wrapper>
           <SlideWrapper ref={slideRef}>
             <Dash>
@@ -129,16 +145,23 @@ const Posters = () => {
             </Dash>
           </SlideWrapper>
         </Wrapper>
-        <button
-          onClick={moveToNextSlide}
+        <span
           style={{
-            cursor: "pointer",
-            border: "transparent",
-            backgroundColor: "transparent",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <FontAwesomeIcon icon={faChevronRight} size="2xl" />
-        </button>
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            size="2xl"
+            onClick={moveToNextSlide}
+            style={{
+              cursor: "pointer",
+              border: "transparent",
+              backgroundColor: "transparent",
+            }}
+          />
+        </span>
       </Container>
     </div>
   );
