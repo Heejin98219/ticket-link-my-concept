@@ -14,6 +14,7 @@ const TicketList = () => {
           style={{
             display: "inline-block",
             fontSize: "27px",
+            fontWeight: "bold",
           }}
         >
           오픈 예정
@@ -29,7 +30,6 @@ const TicketList = () => {
           전체 보기
         </li>
       </ul>
-
       {/* 페이크 데이터를 사용한
       공연 리스트 입니다. */}
       <div
@@ -47,7 +47,7 @@ const TicketList = () => {
             />
           </Link>
           <br />
-          <p>INFINITE 15TH ANNIVERSARY CONCE ...</p>
+          <p>&nbsp;INFINITE 15TH ANNIVERSARY CONCE ...</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/51557">
@@ -57,7 +57,7 @@ const TicketList = () => {
             ></img>
           </Link>
           <br />
-          <p>2024 NAM WOO HYUN CONCERT &#60; ...</p>
+          <p>&nbsp;2024 NAM WOO HYUN CONCERT &#60; ...</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/50692">
@@ -67,7 +67,7 @@ const TicketList = () => {
             ></img>
           </Link>
           <br />
-          <p>2024 KIM SUNG KYU CONCERT &#91;LV3 : ...</p>
+          <p>&nbsp;2024 KIM SUNG KYU CONCERT &#91;LV3 : ...</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/47723">
@@ -77,7 +77,7 @@ const TicketList = () => {
             ></img>
           </Link>
           <br />
-          <p>2024 KIM SUNG KYU FAN MEETING &#91; ...</p>
+          <p>&nbsp;2024 KIM SUNG KYU FAN MEETING &#91; ...</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/36976">
@@ -87,10 +87,9 @@ const TicketList = () => {
             ></img>
           </Link>
           <br />
-          <p>2022 이성열 팬미팅 〈The loeYeol〉</p>
+          <p>&nbsp;2022 이성열 팬미팅 〈The loeYeol〉</p>
         </div>
       </div>
-
       {/* 2열 */}
       {/* 페이크 데이터를 사용한
       공연 리스트 입니다. */}
@@ -109,7 +108,7 @@ const TicketList = () => {
             />
           </Link>
           <br />
-          <p>2024 러블리즈 10주년 콘서트 &#60;겨울 ...</p>
+          <p>&nbsp;2024 러블리즈 10주년 콘서트 &#60;겨울 ...</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/38788">
@@ -119,7 +118,7 @@ const TicketList = () => {
             />
           </Link>
           <br />
-          <p>뮤지컬 〈킹키부츠〉</p>
+          <p>&nbsp;뮤지컬 〈킹키부츠〉</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/40653">
@@ -129,7 +128,7 @@ const TicketList = () => {
             />
           </Link>
           <br />
-          <p>2022 KIM SUNG KYU Fan Meeting</p>
+          <p>&nbsp;2022 KIM SUNG KYU Fan Meeting</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/42045">
@@ -139,7 +138,7 @@ const TicketList = () => {
             />
           </Link>
           <br />
-          <p>2024 KIM SUNG KYU FAN MEETING &#91; ...</p>
+          <p>&nbsp;2024 KIM SUNG KYU FAN MEETING &#91; ...</p>
         </div>
         <div>
           <Link to="https://www.ticketlink.co.kr/product/41096">
@@ -149,69 +148,7 @@ const TicketList = () => {
             />
           </Link>
           <br />
-          <p>김성규 공식 팬클럽 성규특별시 시민 2 ... </p>
-        </div>
-      </div>
-
-      {/* 3열 */}
-      {/* 페이크 데이터를 사용한
-      공연 리스트 입니다. */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          marginBottom: "3rem",
-        }}
-      >
-        <div>
-          <Link to="https://www.ticketlink.co.kr/product/49356">
-            <img
-              src="http://image.toast.com/aaaaab/ticketlink/TKL_10/MEGAFIELD_pst_0326.jpg"
-              style={{ width: "300px", height: "460px", marginBottom: "10px" }}
-            />
-          </Link>
-          <br />
-          <p>메가필드뮤직페스티벌 2024</p>
-        </div>
-        <div>
-          <Link to="https://www.ticketlink.co.kr/product/37096">
-            <img
-              src="http://image.toast.com/aaaaab/ticketlink/TKL_8/jr_pst0103.jpg"
-              style={{ width: "300px", height: "460px", marginBottom: "10px" }}
-            />
-          </Link>
-          <br />
-          <p>뮤지컬 〈잭더리퍼〉- 대구</p>
-        </div>
-        <div>
-          <Link to="https://www.ticketlink.co.kr/product/37306">
-            <img
-              src="http://image.toast.com/aaaaab/ticketlink/TKL_8/jr_pst0103.jpg"
-              style={{ width: "300px", height: "460px", marginBottom: "10px" }}
-            />
-          </Link>
-          <br />
-          <p>뮤지컬 〈잭더리퍼〉 - 청주</p>
-        </div>
-        <div>
-          <Link to="https://www.ticketlink.co.kr/product/27913">
-            <img
-              src="http://image.toast.com/aaaaab/ticketlink/TKL_7/theday_main_0411.jpg"
-              style={{ width: "300px", height: "460px", marginBottom: "10px" }}
-            />
-          </Link>
-          <br />
-          <p>뮤지컬 그날들 - 대구</p>
-        </div>
-        <div>
-          <Link to="https://www.ticketlink.co.kr/product/32999">
-            <img
-              src="http://image.toast.com/aaaaab/ticketlink/TKL_10/comeback_200910.jpg"
-              style={{ width: "300px", height: "460px", marginBottom: "10px" }}
-            />
-          </Link>
-          <br />
-          <p>뮤지컬 〈귀환〉 온라인 생중계 - 온라인 ...</p>
+          <p>&nbsp;김성규 공식 팬클럽 성규특별시 시민 2 ... </p>
         </div>
       </div>
     </div>

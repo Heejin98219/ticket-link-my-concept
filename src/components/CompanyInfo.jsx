@@ -1,30 +1,55 @@
+import { Link } from "react-router-dom";
+
 const CompanyInfo = () => {
   return (
-    <div>
+    <>
       <div
         style={{
           borderTop: "3px solid black",
         }}
       ></div>
 
-      <div>
-        <ul
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "400px",
+      <ul
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "300px",
+          marginTop: "20px",
+        }}
+      >
+        <li style={{ cursor: "pointer" }}>
+          <Link
+            to={"https://www.ticketlink.co.kr/policy/privacy"}
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+          >
+            &nbsp;개인정보 처리방침
+          </Link>
+        </li>
+
+        <li
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            alert(
+              "이메일 무단 수집을 금지합니다.\n위반 시 관련 법률에 따라 처벌받을 수 있습니다."
+            );
           }}
         >
-          <li>이용약관</li>
-          <li>개인정보 처리방침</li>
-          <li>이메일 무단수집</li>
-        </ul>
-      </div>
+          이메일무단수집거부
+        </li>
+      </ul>
 
       <div>
         <ul
           style={{
-            textAlign: "center",
+            margin: "0 auto", // 수평 중앙 정렬
+            position: "relative", // 부모 기준으로 위치 설정
+            transform: "translateY(10%)", // 자신 크기 기준으로 수직 중앙 정렬
+            textAlign: "center", // 텍스트 중앙 정렬
+            lineHeight: "60px",
+            fontSize: "17px",
           }}
         >
           <li>회사명: 엔에치엔링크 주식회사</li>
@@ -35,7 +60,7 @@ const CompanyInfo = () => {
           <li>© NHN LINK Corporation. All rights reserved.</li>
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
