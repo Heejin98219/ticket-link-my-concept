@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faTiktok } from "@fortawesome/free-brands-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import {
+  faXTwitter,
+  faFacebook,
+  faInstagram,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -29,7 +31,17 @@ const SNS = () => {
           padding: "10px",
         }}
       >
-        <FontAwesomeIcon icon={faXTwitter} size="xl" />
+        <a href="https://x.com/nhn_ticketlink">
+          <FontAwesomeIcon
+            icon={faXTwitter}
+            size="xl"
+            style={{
+              cursor: "pointer",
+              color: "black",
+              textDecoration: "none",
+            }}
+          />
+        </a>
       </div>
 
       <div
@@ -40,7 +52,17 @@ const SNS = () => {
           padding: "10px",
         }}
       >
-        <FontAwesomeIcon icon={faFacebook} size="xl" />
+        <a href="https://www.facebook.com/ticketlink">
+          <FontAwesomeIcon
+            icon={faFacebook}
+            size="xl"
+            style={{
+              cursor: "pointer",
+              color: "black",
+              textDecoration: "none",
+            }}
+          />
+        </a>
       </div>
 
       <div
@@ -51,8 +73,19 @@ const SNS = () => {
           padding: "10px",
         }}
       >
-        <FontAwesomeIcon icon={faInstagram} size="xl" />
+        <a href="https://www.instagram.com/ticketlink.co.kr/">
+          <FontAwesomeIcon
+            icon={faInstagram}
+            size="xl"
+            style={{
+              cursor: "pointer",
+              color: "black",
+              textDecoration: "none",
+            }}
+          />
+        </a>
       </div>
+
       <div
         style={{
           backgroundColor: "#ccc",
@@ -61,8 +94,19 @@ const SNS = () => {
           padding: "10px",
         }}
       >
-        <FontAwesomeIcon icon={faTiktok} size="xl" />
+        <a href="https://blog.naver.com/t_link">
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            size="xl"
+            style={{
+              cursor: "pointer",
+              color: "black",
+              textDecoration: "none",
+            }}
+          />
+        </a>
       </div>
+
       <div
         style={{
           backgroundColor: "#ccc",
@@ -71,7 +115,17 @@ const SNS = () => {
           padding: "10px",
         }}
       >
-        <FontAwesomeIcon icon={faYoutube} size="xl" />
+        <a href="https://www.youtube.com/@ticketlink012">
+          <FontAwesomeIcon
+            icon={faYoutube}
+            size="xl"
+            style={{
+              cursor: "pointer",
+              color: "black",
+              textDecoration: "none",
+            }}
+          />
+        </a>
       </div>
     </div>
   );

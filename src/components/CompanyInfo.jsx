@@ -17,16 +17,17 @@ const CompanyInfo = () => {
           marginTop: "20px",
         }}
       >
-        <li style={{ cursor: "pointer" }}>
-          <Link
-            to={"https://www.ticketlink.co.kr/policy/privacy"}
-            style={{
-              textDecoration: "none",
-              color: "black",
-            }}
-          >
-            &nbsp;개인정보 처리방침
-          </Link>
+        <li
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            alert(
+              "티켓링크는 개인정보를 소중히 다루며,\n" +
+                "관련 법률을 준수합니다.\n" +
+                "개정 사항은 공지사항을 통해 안내됩니다."
+            );
+          }}
+        >
+          &nbsp;개인정보 처리방침
         </li>
 
         <li
