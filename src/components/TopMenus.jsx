@@ -35,7 +35,6 @@ const TopMenus = () => {
                 display: "inline-block",
                 cursor: "pointer",
               }}
-              onClick={() => navigate("/login")}
             >
               <span
                 style={{
