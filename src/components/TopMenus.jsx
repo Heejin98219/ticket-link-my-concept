@@ -43,6 +43,19 @@ const TopMenus = () => {
               >
                 KOR&nbsp;▼&nbsp;
               </span>
+              <ul
+                style={{
+                  fontSize: "14px",
+                  position: "absolute",
+                  top: "10%",
+                  lineHeight: "23px",
+                  textAlign: "center",
+                }}
+              >
+                <li>ENG</li>
+                <li>JPN</li>
+                <li>CHN</li>
+              </ul>
             </li>
             <li
               style={{
