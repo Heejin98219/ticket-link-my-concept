@@ -15,7 +15,7 @@ const TopMenus = () => {
           src="/ticketLinkLogoImg.png" // 경로 수정
           style={{
             width: "150px",
-            height: "65px", // 쉼표 제거
+            height: "65px",
             cursor: "pointer",
             marginTop: "1rem",
           }}
@@ -48,8 +48,10 @@ const TopMenus = () => {
                   fontSize: "14px",
                   position: "absolute",
                   top: "10%",
-                  lineHeight: "23px",
+                  lineHeight: "27px",
                   textAlign: "center",
+                  border: "2px solid #ccc",
+                  padding: "6px",
                 }}
               >
                 <li>ENG</li>
