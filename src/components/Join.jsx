@@ -1,106 +1,159 @@
+import { useState } from "react";
+import React from "react";
+
 const Join = () => {
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [passWord, setPassword] = useState("");
+  const [passWordRe, setPasswordRe] = useState("");
+
+  // 회원가입 함수
+  const UserJoin = async () => {
+    try {
+      // 실제 값들을 변수로 전달해야 합니다.
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: passWord,
+      });
+
+      if (error) {
+        alert("에러:", error.message);
+      } else {
+        alert("성공:", data);
+      }
+    } catch (err) {
+      alert("예상:", err);
+    }
+  };
+
   return (
     <div>
       <div
         style={{
+          position: "absolute",
+          left: "50%",
+          transform: "translate(-50%)",
           textAlign: "center",
+          display: "inline-block",
+          margin: "0 auto",
         }}
       >
         <img
-          src="/ticketLinkLogoImg.png"
+          src="/public/ticketLinkLogoImg.png"
           style={{
-            width: "150px",
-            height: "65px",
+            margin: "0 auto",
+            maxWidth: "200px",
+            minWidth: "120px",
+            height: "auto",
             cursor: "pointer",
-            marginTop: "108px",
+            marginTop: "8vh",
           }}
         />
-      </div>
 
-      <div
-        style={{
-          marginTop: "2.5rem",
-          textAlign: "center",
-        }}
-      >
-        <input
-          type="text"
-          placeholder="이름을 입력해주세요"
+        <div
           style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-          }}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="전화번호를 입력해주세요"
-          style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-            marginTop: "7px",
-          }}
-        />
-        <br />
-        <input
-          type="email"
-          placeholder="이메일을 입력해주세요"
-          style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-            marginTop: "7px",
-          }}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="비밀번호를 입력해주세요"
-          style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-            marginTop: "7px",
-          }}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="비밀번호를 다시 입력해주세요"
-          style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-            marginTop: "7px",
-          }}
-        />
-        <br />
-        <button
-          style={{
-            width: "385px",
-            height: "50px",
-            borderRadius: "10px",
-            fontSize: "20px",
-            marginTop: "10px",
-            fontWeight: "bold",
-            backgroundColor: "#ccc",
-            cursor: "pointer",
+            marginTop: "2.5rem",
           }}
         >
-          회원가입
-        </button>
+          <input
+            type="text"
+            placeholder="이름을 입력해주세요"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+            }}
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="전화번호를 입력해주세요 (-기호 제외)"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+              marginTop: "12px",
+            }}
+            value={phoneNumber}
+            onChange={(e) => {
+              setPhoneNumber(e.target.value);
+            }}
+          />
+          <br />
+          <input
+            type="email"
+            placeholder="이메일(아이디)을 입력해주세요"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+              marginTop: "12px",
+            }}
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+              marginTop: "12px",
+            }}
+            value={passWord}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="비밀번호를 다시 입력해주세요"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+              marginTop: "12px",
+            }}
+            value={passWordRe}
+            onChange={(e) => {
+              setPasswordRe(e.target.value);
+            }}
+          />
+          <br />
+          <button
+            style={{
+              width: "370px",
+              padding: "10px",
+              fontSize: "17px",
+              cursor: "pointer",
+              marginTop: "16px",
+              fontWeight: "bold",
+            }}
+            onClick={UserJoin} // 함수 참조만 전달
+          >
+            회원가입
+          </button>
+        </div>
       </div>
     </div>
   );

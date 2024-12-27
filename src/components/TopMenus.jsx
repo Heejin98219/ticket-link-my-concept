@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"; // `useNavigate` 추가
+import React from "react";
 
 const TopMenus = () => {
   const navigate = useNavigate();

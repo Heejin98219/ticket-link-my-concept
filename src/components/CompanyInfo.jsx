@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import React from "react";
 const CompanyInfo = () => {
   return (
     <>
@@ -45,10 +44,10 @@ const CompanyInfo = () => {
       <div>
         <ul
           style={{
-            margin: "0 auto", // 수평 중앙 정렬
-            position: "relative", // 부모 기준으로 위치 설정
-            transform: "translateY(10%)", // 자신 크기 기준으로 수직 중앙 정렬
-            textAlign: "center", // 텍스트 중앙 정렬
+            margin: "0 auto",
+            position: "relative",
+            transform: "translateY(10%)",
+            textAlign: "center",
             lineHeight: "60px",
             fontSize: "17px",
           }}

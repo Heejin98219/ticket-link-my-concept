@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -6,97 +7,106 @@ const Login = () => {
     <div>
       <div
         style={{
+          position: "absolute",
+          left: "50%",
+          transform: "translate(-50%)",
           textAlign: "center",
+          display: "inline-block",
+          margin: "0 auto",
         }}
       >
         <img
-          src="/ticketLinkLogoImg.png"
+          src="/public/ticketLinkLogoImg.png"
           style={{
-            width: "150px",
-            height: "65px",
+            margin: "0 auto",
+            maxWidth: "200px", // 최대 크기를 200px로 제한
+            minWidth: "120px", // 최소 크기를 120px로 설정
+            height: "auto", // 비율 유지
             cursor: "pointer",
-            marginTop: "108px",
+            marginTop: "8vh", // 화면 높이에 비례한 상단 간격
           }}
         />
-      </div>
 
-      <div
-        style={{
-          marginTop: "2.5rem",
-          textAlign: "center",
-        }}
-      >
-        <input
-          type="email"
-          placeholder="이메일을 입력해주세요"
+        <div
           style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-          }}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="비밀번호를 입력해주세요"
-          style={{
-            width: "350px",
-            height: "50px",
-            borderRadius: "10px",
-            padding: "0px 15px 0px 15px",
-            fontSize: "17px",
-            marginTop: "7px",
-          }}
-        />
-        <br />
-        <button
-          style={{
-            width: "385px",
-            height: "50px",
-            borderRadius: "10px",
-            fontSize: "20px",
-            marginTop: "10px",
-            fontWeight: "bold",
-            backgroundColor: "#ccc",
-            cursor: "pointer",
+            marginTop: "2.5rem",
           }}
         >
-          로그인
-        </button>
+          <input
+            type="email"
+            placeholder="이메일을 입력해주세요"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+            }}
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            style={{
+              width: "350px",
+              padding: "10px",
+              fontSize: "17px",
+              borderRadius: "7px",
+              height: "27px",
+              marginTop: "12px",
+            }}
+          />
+          <br />
+          <button
+            style={{
+              width: "370px",
+              padding: "10px",
+              fontSize: "17px",
+              cursor: "pointer",
+              marginTop: "16px",
+              fontWeight: "bold",
+            }}
+          >
+            로그인
+          </button>
+        </div>
         <div>
           <ul
             style={{
               display: "flex",
               justifyContent: "space-evenly",
-              width: "385px",
-              margin: "10px auto",
+              marginTop: "16px",
             }}
           >
             <li
+              onClick={() => {
+                navigate("/findid");
+              }}
               style={{
                 cursor: "pointer",
               }}
-              onClick={() => navigate("/join")}
-            >
-              회원가입
-            </li>
-            <li
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => navigate("/findid")}
             >
               아이디 찾기
             </li>
             <li
+              onClick={() => {
+                navigate("/findpw");
+              }}
               style={{
                 cursor: "pointer",
               }}
-              onClick={() => navigate("/findpw")}
             >
               비밀번호 찾기
+            </li>
+            <li
+              onClick={() => {
+                navigate("/join");
+              }}
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              회원가입
             </li>
           </ul>
         </div>

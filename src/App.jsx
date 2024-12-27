@@ -13,6 +13,7 @@ import Join from "./components/Join";
 import FindId from "./components/FindId";
 import FindPw from "./components/FindPw";
 import ShowId from "./components/ShowId";
+import React from "react";
 
 function App() {
   return (
