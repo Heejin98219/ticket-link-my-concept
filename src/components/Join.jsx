@@ -149,7 +149,7 @@ const Join = () => {
               marginTop: "16px",
               fontWeight: "bold",
             }}
-            onClick={UserJoin} // 함수 참조만 전달
+            onClick={UserJoin}
           >
             회원가입
           </button>

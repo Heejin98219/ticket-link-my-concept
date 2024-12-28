@@ -17,11 +17,11 @@ const FindId = () => {
             src="/public/ticketLinkLogoImg.png"
             style={{
               margin: "0 auto",
-              maxWidth: "200px", // 최대 크기를 200px로 제한
-              minWidth: "120px", // 최소 크기를 120px로 설정
-              height: "auto", // 비율 유지
+              maxWidth: "200px",
+              minWidth: "120px",
+              height: "auto",
               cursor: "pointer",
-              marginTop: "8vh", // 화면 높이에 비례한 상단 간격
+              marginTop: "8vh",
             }}
           />
 
