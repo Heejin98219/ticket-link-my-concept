@@ -1,29 +1,55 @@
 import { useState } from "react";
 import React from "react";
+import { createClient } from "@supabase/supabase-js"; // 이 부분을 주석 해제하세요.
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 const Join = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
-  const [passWord, setPassword] = useState("");
-  const [passWordRe, setPasswordRe] = useState("");
+  const [passWord, setPassWord] = useState("");
+  const [passWordRe, setPassWordRe] = useState("");
 
   // 회원가입 함수
   const UserJoin = async () => {
     try {
-      // 실제 값들을 변수로 전달해야 합니다.
-      const { data, error } = await supabase.auth.signUp({
+      if (passWord !== passWordRe) {
+        throw new Error("비밀번호가 일치하지 않습니다.");
+      }
+
+      // 1. Supabase 인증 시스템에 사용자 생성
+      const { user, error: signUpError } = await supabase.auth.signUp({
         email: email,
         password: passWord,
       });
 
-      if (error) {
-        alert("에러:", error.message);
-      } else {
-        alert("성공:", data);
+      if (signUpError) {
+        throw signUpError;
       }
+
+      // 2. users 테이블에 추가 정보 삽입
+      const { data, error: insertError } = await supabase
+        .from("Ticket Link")
+        .insert([
+          {
+            name: name,
+            phoneNumber: phoneNumber,
+            email: email,
+            user_id: user.id,
+          },
+        ]);
+
+      if (insertError) {
+        throw insertError;
+      }
+
+      console.log("회원가입 성공:", data);
     } catch (err) {
-      alert("예상:", err);
+      console.error("회원가입 실패:", err.message);
     }
   };
 
@@ -118,9 +144,7 @@ const Join = () => {
               marginTop: "12px",
             }}
             value={passWord}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            onChange={(e) => setPassWord(e.target.value)}
           />
           <br />
           <input
@@ -135,9 +159,7 @@ const Join = () => {
               marginTop: "12px",
             }}
             value={passWordRe}
-            onChange={(e) => {
-              setPasswordRe(e.target.value);
-            }}
+            onChange={(e) => setPassWordRe(e.target.value)}
           />
           <br />
           <button
