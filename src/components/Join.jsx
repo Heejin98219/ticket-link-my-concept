@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
-import { createClient } from "@supabase/supabase-js"; // 이 부분을 주석 해제하세요.
+import { createClient } from "@supabase/supabase-js";
+import supabase from "../../supabaseClient";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -15,41 +16,28 @@ const Join = () => {
   const [passWordRe, setPassWordRe] = useState("");
 
   // 회원가입 함수
-  const UserJoin = async () => {
-    try {
-      if (passWord !== passWordRe) {
-        throw new Error("비밀번호가 일치하지 않습니다.");
-      }
-
-      // 1. Supabase 인증 시스템에 사용자 생성
-      const { user, error: signUpError } = await supabase.auth.signUp({
-        email: email,
-        password: passWord,
-      });
-
-      if (signUpError) {
-        throw signUpError;
-      }
-
-      // 2. users 테이블에 추가 정보 삽입
-      const { data, error: insertError } = await supabase
-        .from("Ticket Link")
-        .insert([
-          {
+  const JoinTicketLink = async () => {
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: passWord,
+      options: {
+        data: {
+          user_metadata: {
             name: name,
             phoneNumber: phoneNumber,
-            email: email,
-            user_id: user.id,
           },
-        ]);
+        },
+      },
+    });
 
-      if (insertError) {
-        throw insertError;
-      }
-
-      console.log("회원가입 성공:", data);
-    } catch (err) {
-      console.error("회원가입 실패:", err.message);
+    if (error) {
+      alert("가입 x");
+    } else {
+      alert("성공");
+      const error = await supabase.from("Ticket Link").insert({
+        data: data.TicketLink.email,
+        name: name,
+      });
     }
   };
 
@@ -171,7 +159,7 @@ const Join = () => {
               marginTop: "16px",
               fontWeight: "bold",
             }}
-            onClick={UserJoin}
+            onClick={JoinTicketLink}
           >
             회원가입
           </button>

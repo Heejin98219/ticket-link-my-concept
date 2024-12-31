@@ -16,6 +16,9 @@ import ShowId from "./components/ShowId";
 import React from "react";
 
 function App() {
+  console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
+  console.log("Supabase ANON KEY:", import.meta.env.VITE_SUPABASE_ANON_KEY);
+
   return (
     <>
       <BrowserRouter>
