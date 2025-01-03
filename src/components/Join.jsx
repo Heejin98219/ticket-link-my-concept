@@ -1,12 +1,5 @@
 import { useState } from "react";
 import React from "react";
-import { createClient } from "@supabase/supabase-js";
-import supabase from "../../supabaseClient";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
 
 const Join = () => {
   const [name, setName] = useState("");
@@ -30,14 +23,22 @@ const Join = () => {
       },
     });
 
-    if (error) {
-      alert("가입 x");
+    if (signUpError) {
+      alert("회원가입 실패: " + signUpError.message);
+      return;
+    }
+
+    alert("회원가입 성공");
+
+    const { error: insertError } = await supabase.from("Users").insert({
+      email: data.user.email,
+      name: name,
+    });
+
+    if (insertError) {
+      alert("사용자 정보 저장 실패: " + insertError.message);
     } else {
-      alert("성공");
-      const error = await supabase.from("Ticket Link").insert({
-        data: data.TicketLink.email,
-        name: name,
-      });
+      alert("사용자 정보 저장 성공");
     }
   };
 
