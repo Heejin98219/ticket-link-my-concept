@@ -30,7 +30,7 @@ const Join = () => {
 
     alert("회원가입 성공");
 
-    const { error: insertError } = await supabase.from("Users").insert({
+    const { error: insertError } = await supabase.from("Ticket Link").insert({
       email: data.user.email,
       name: name,
     });
