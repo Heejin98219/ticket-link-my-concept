@@ -1,6 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl=https://dhcyuclmstewpkxiobnt.supabase.co;
-const supabaseAnonKey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRoY3l1Y2xtc3Rld3BreGlvYm50Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU1MjI0OTQsImV4cCI6MjA1MTA5ODQ5NH0.AkNu3BPsDxA8m5-NxGvylSCm20OWuOGhQDNV_WypxWo;
+// 환경 변수에서 Supabase URL과 익명 키를 가져옵니다.
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error("Supabase 환경 변수가 설정되지 않았습니다.");
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+export default supabase;

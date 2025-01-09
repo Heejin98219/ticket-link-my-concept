@@ -13,7 +13,7 @@ import Join from "./components/Join";
 import FindId from "./components/FindId";
 import FindPw from "./components/FindPw";
 import ShowId from "./components/ShowId";
-import { supabase } from "../supabaseClient";
+import supabase from "../supabaseClient";
 import React, { useEffect } from "react";
 
 function App() {
