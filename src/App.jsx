@@ -18,9 +18,13 @@ import React, { useEffect } from "react";
 
 function App() {
   // fetchData를 useEffect 바깥에 정의
+
+  console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
+  console.log("Supabase Anon Key:", import.meta.env.VITE_SUPABASE_ANON_KEY);
+
   async function fetchData() {
     try {
-      const { data, error } = await supabase.from("Ticket Link").select("*");
+      const { data, error } = await supabase.from('"Ticket Link"').select("*");
       if (error) {
         console.error("Error fetching data:", error.message);
       } else {
