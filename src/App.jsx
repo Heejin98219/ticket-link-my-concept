@@ -18,7 +18,7 @@ import React, { useEffect } from "react";
 
 function App() {
   // fetchData를 useEffect 바깥에 정의
-
+  console.log("안녕");
   console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);
   console.log("Supabase Anon Key:", import.meta.env.VITE_SUPABASE_ANON_KEY);
 
